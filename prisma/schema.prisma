@@ -44,7 +44,7 @@ model Post {
   authorId  String
   content   String
   image     String?
-  createAt  DateTime @default(now())
+  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   //*Relations
@@ -59,12 +59,12 @@ model Comment {
   content   String
   authorId  String
   postId    String
-  craetedAt DateTime @default(now())
+  createdAt DateTime @default(now())
 
   //*Realtions
-  author       User           @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  post         Post           @relation(fields: [postId], references: [id], onDelete: Cascade)
-  Notification Notification[]
+  author        User           @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  post          Post           @relation(fields: [postId], references: [id], onDelete: Cascade)
+  notifications Notification[]
 
   @@index([authorId, postId]) //composite index for faster queries
 }
@@ -73,7 +73,7 @@ model Like {
   id        String   @id @default(cuid())
   postId    String
   userId    String
-  CreatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
 
   //* Relation
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -84,16 +84,16 @@ model Like {
 }
 
 model Follows {
-  follwerId   String
+  followerId  String
   followingId String
   createdAt   DateTime @default(now())
 
   //*Realtions 
-  follower  User @relation("follower", fields: [follwerId], references: [id], onDelete: Cascade)
+  follower  User @relation("follower", fields: [followerId], references: [id], onDelete: Cascade)
   following User @relation("following", fields: [followingId], references: [id], onDelete: Cascade)
 
-  @@id([follwerId, followingId])
-  @@index([follwerId, followingId]) //composite index for 
+  @@id([followerId, followingId])
+  @@index([followerId, followingId]) //composite index for 
 }
 
 model Notification {
