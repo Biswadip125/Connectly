@@ -93,7 +93,7 @@ model Follows {
   following User @relation("following", fields: [followingId], references: [id], onDelete: Cascade)
 
   @@id([followerId, followingId])
-  @@index([followerId, followingId]) //composite index for 
+  @@index([followerId, followingId]) //composite index for faster queries
 }
 
 model Notification {

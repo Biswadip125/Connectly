@@ -36,7 +36,7 @@ const CreatePost = () => {
     }
   };
   return (
-    <Card className="mb-6 ">
+    <Card className="mb-6 dark:bg-transparent">
       <CardContent className="pt-6">
         <div className="space-y-4">
           <div className="flex space-x-4 w-full">
