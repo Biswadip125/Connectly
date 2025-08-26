@@ -13,13 +13,13 @@ const WhoToFollow = async () => {
   const user = await currentUser();
 
   return (
-    <Card className="dark:bg-transparent">
+    <Card className="dark:bg-transparent sticky top-20">
       <CardHeader>
         <CardTitle>Who To Follow</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {randomUsers.map((randomUser) => (
+          {randomUsers?.map((randomUser) => (
             <div
               key={randomUser.id}
               className="flex items-center gap-2 justify-between "
