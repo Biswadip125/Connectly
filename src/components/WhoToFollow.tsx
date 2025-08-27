@@ -9,8 +9,7 @@ import FollowButton from "./FollowButton";
 const WhoToFollow = async () => {
   const randomUsers = await getRandomUsers();
 
-  // if (randomUsers.length === 0) return null;
-  const user = await currentUser();
+  if (randomUsers?.length === 0) return null;
 
   return (
     <Card className="dark:bg-transparent sticky top-20">
