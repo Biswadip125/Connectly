@@ -16,7 +16,7 @@ const FollowButton: React.FC<FollowButtonProps> = ({ userId }) => {
 
     try {
       const res = await toggleFollow(userId);
-      if (res.success) {
+      if (res?.success) {
         toast.success("User followed Successfully");
       }
     } catch (error) {
