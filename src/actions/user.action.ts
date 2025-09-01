@@ -3,7 +3,6 @@
 import prisma from "@/lib/prisma";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
-import { use } from "react";
 
 export const syncUser = async () => {
   try {
@@ -151,7 +150,7 @@ export async function toggleFollow(targetUserId: string) {
         }),
       ]);
     }
-    revalidatePath("/");
+    revalidatePath("/profile/");
     return { success: true };
   } catch (error) {
     console.log("Error in toggleFollow: ", error);

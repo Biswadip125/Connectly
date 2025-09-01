@@ -92,7 +92,7 @@ const PostCard = ({
     }
   };
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden dark:bg-transparent">
       <CardContent className="">
         <div className="space-y-4">
           <div className="flex space-x-3 sm:space-x-4">
@@ -137,7 +137,7 @@ const PostCard = ({
           {/*POST IMage */}
           {post.image && (
             <div className="rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={post?.image ?? ""}
                 alt="Post content"
                 className="w-full h-auto object-cover"
